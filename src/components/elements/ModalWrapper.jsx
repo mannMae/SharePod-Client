@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const ModalWrapper = ({ children, handleModal }) => {
   return (
     <Modal>
-      <Overlay className="close-btn" onClick={handleModal}>
+      <Overlay className="modal" onClick={handleModal}>
         {children}
       </Overlay>
     </Modal>

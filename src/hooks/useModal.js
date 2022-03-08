@@ -4,7 +4,7 @@ const useModal = () => {
   const [modalState, setModalState] = useState(false);
 
   const handleModal = (e) => {
-    if (e.target.classList.contains('close-btn') || !modalState) {
+    if (e.target.classList.contains('modal') || !modalState) {
       setModalState(!modalState);
     }
   };
