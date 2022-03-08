@@ -1,19 +1,49 @@
-import React from 'react';
-import ModalWrapper from 'components/elements/ModalWrapper';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import useInputValue from 'hooks/useInputValue';
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/modules/user';
+
+import ModalWrapper from 'components/elements/ModalWrapper';
+import useModal from 'hooks/useModal';
+
 const LoginModal = ({ modalState, handleModal }) => {
+  const dispatch = useDispatch();
+
+  const userId = useInputValue('');
+  const userPw = useInputValue('');
+  const handleLoginBtn = (e) => {
+    e.preventDefault();
+    const user = {
+      username: userId.value,
+      password: userPw.value,
+    };
+    dispatch(login(user));
+    handleModal(e);
+  };
+
   return (
     <ModalWrapper handleModal={handleModal}>
       <LoginWrapper modalState={modalState}>
-        <button className="close-btn">close-icon</button>
+        <button className="close-btn modal">close-icon</button>
         <div className="logo">
           <h2>LOGO</h2>
         </div>
-        <form className="login-form">
+        <form className="login-form modal" onSubmit={handleLoginBtn}>
           <div className="input-box">
-            <input type="text" />
-            <input type="password" />
+            <input
+              id="userId"
+              type="id"
+              placeholder="아이디"
+              onChange={userId.onChange}
+            />
+            <input
+              id="password"
+              type="password"
+              placeholder="비밀번호"
+              onChange={userPw.onChange}
+            />
           </div>
           <button>로그인</button>
         </form>
