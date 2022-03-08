@@ -1,5 +1,15 @@
-function App() {
-  return <div className='App'>기본 설정</div>;
-}
+import React from 'react';
 
+import MainPage from 'pages/MainPage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
 export default App;
