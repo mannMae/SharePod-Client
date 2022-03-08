@@ -3,7 +3,10 @@ import { all } from 'redux-saga/effects';
 import createSagaMiddleware from 'redux-saga';
 import { configureStore } from '@reduxjs/toolkit';
 
-const reducer = combineReducers({});
+import user from 'redux/modules/user';
+import { userSaga } from 'saga/userSaga';
+
+const reducer = combineReducers({ user });
 
 export const sagaMiddleware = createSagaMiddleware();
 
@@ -19,7 +22,7 @@ if (devMode) {
 }
 
 export function* rootSaga() {
-  yield all([]);
+  yield all([userSaga()]);
 }
 
 export const store = configureStore({
