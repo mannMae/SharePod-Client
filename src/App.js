@@ -16,7 +16,7 @@ function App() {
         <Route path="/write/:type" element={<BoardWritePage />} />
         <Route path="/board/:id" element={<BoardDetailPage />} />
         <Route path="/board" element={<BoardListPage />} />
-        <Route path="/regeist" element={<RegistPage />} />
+        <Route path="/regist" element={<RegistPage />} />
         <Route path="/" element={<MainPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
