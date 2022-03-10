@@ -3,27 +3,31 @@ import useModal from 'hooks/useModal';
 import LoginModal from 'components/common/LoginModal';
 import SearchBar from 'components/elements/SearchBar';
 import styled from 'styled-components';
+import SliderSection from './SliderSection';
 
 const CommonHeader = () => {
   const [modalState, handleModal] = useModal();
 
   return (
-    <HeaderWrapper>
-      <div className="main-logo">
-        <p>LOGO</p>
-      </div>
-      <SearchBar />
-      {modalState && (
-        <LoginModal modalState={modalState} handleModal={handleModal} />
-      )}
-      <div className="right-nav">
-        <button onClick={handleModal}>로그인</button>
-      </div>
-    </HeaderWrapper>
+    <>
+      <HeaderWrapper>
+        <div className="main-logo">
+          <p>LOGO</p>
+        </div>
+        <SearchBar />
+        {modalState && (
+          <LoginModal modalState={modalState} handleModal={handleModal} />
+        )}
+        <div className="right-nav">
+          <button onClick={handleModal}>로그인</button>
+        </div>
+      </HeaderWrapper>
+      <SliderSection />
+    </>
   );
 };
 
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled.div`
   position: sticky;
   top: 0;
   left: 0;

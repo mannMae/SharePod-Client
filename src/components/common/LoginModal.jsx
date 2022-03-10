@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import useInputValue from 'hooks/useInputValue';
@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import { login } from 'redux/modules/user';
 
 import ModalWrapper from 'components/elements/ModalWrapper';
-import useModal from 'hooks/useModal';
 
 const LoginModal = ({ modalState, handleModal }) => {
   const dispatch = useDispatch();
